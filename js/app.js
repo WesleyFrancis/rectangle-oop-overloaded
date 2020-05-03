@@ -46,20 +46,22 @@ const app=
             {
                 MainUI.populateAnswerContainer(rec);
             }
-                if(stringTester((MainUI.lengthTextField.value))
-                {
+                // if(stringTester(MainUI.lengthTextField.value))
+                // {
+                //     MainUI.validateCharType("length",true);
+                // }
+                // else{
+                //     MainUI.validateCharType("length",false);
+                // }
 
-                }
-                else{
+                // if(stringTester(MainUI.widthTextField.value))
+                // {
+                //     MainUI.validateCharType("width",true);
+                // }
+                // else{
+                //     MainUI.validateCharType("width",false);
+                // }
 
-                }
-                if(stringTester(MainUI.widthTextField.value))
-                {
-
-                }
-                else{
-
-                }
                 MainUI.validateFieldLength(MainUI.lengthTextField.value);
                 MainUI.validateFieldWidth(MainUI.widthTextField.value);
             

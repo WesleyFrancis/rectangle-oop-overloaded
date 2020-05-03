@@ -43,17 +43,23 @@ const MainUI =
             this.errorContainer[1].innerHTML="";
         }
     },
-    validateCharType(type,char)
-    {
-        if(type=="length")
-        {
-            
-        }
-        if(type=="width")
-        {
-
-        }
-    }
+    // validateCharType(type,err)
+    // {
+    //     if(type=="length" && err==true)
+    //     {
+    //         this.errorContainer[0].innerHTML="Only numbers are accepted";
+    //     }
+    //     else{
+    //         this.errorContainer[0].innerHTML="";
+    //     }
+    //     if(type=="width")
+    //     {
+    //         this.errorContainer[1].innerHTML="Only numbers are accepted";
+    //     }
+    //     else{
+    //         this.errorContainer[1].innerHTML="";
+    //     }
+    // }
 
 }
 
