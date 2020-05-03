@@ -48,7 +48,7 @@ const app=
             }
                 if(stringTester((MainUI.lengthTextField.value))
                 {
-                        
+
                 }
                 else{
 
