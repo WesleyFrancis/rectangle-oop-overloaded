@@ -69,14 +69,13 @@ const app=
 
         function stringTester(inputtxt)
         {
-         const letterNumber = /^[0-9a-zA-Z]+$/;
+         const letterNumber = /^[0-9]+$/;
          if(inputtxt.value.match(letterNumber))
           {
            return true;
           }
         else
           { 
-           alert("message"); 
            return false; 
           }
         }
