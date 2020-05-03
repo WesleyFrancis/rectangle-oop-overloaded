@@ -33,25 +33,51 @@ const app=
 
         document.addEventListener("DOMContentLoaded",function(){
 
-            alert("Main UI Has finished loaded");
+           // alert("Main UI Has finished loaded");
+          
         })
 
         
         MainUI.calculateButton.addEventListener("click",function(){
 
-        /*
-            Logically what I want to do in here!!!!!!
-
-        */
-
-       const rec = new Rectangle(parseFloat(MainUI.lengthTextField.value),parseFloat(MainUI.widthTextField.value));
+            const rec = new Rectangle(parseFloat(MainUI.lengthTextField.value),parseFloat(MainUI.widthTextField.value));
        
-       MainUI.populateAnswerContainer(rec)
+            if(MainUI.lengthTextField.value!="" && MainUI.widthTextField.value!="")
+            {
+                MainUI.populateAnswerContainer(rec);
+            }
+                if(stringTester((MainUI.lengthTextField.value))
+                {
+                        
+                }
+                else{
 
+                }
+                if(stringTester(MainUI.widthTextField.value))
+                {
 
+                }
+                else{
+
+                }
+                MainUI.validateFieldLength(MainUI.lengthTextField.value);
+                MainUI.validateFieldWidth(MainUI.widthTextField.value);
+            
         });
 
-    
+        function stringTester(inputtxt)
+        {
+         const letterNumber = /^[0-9a-zA-Z]+$/;
+         if(inputtxt.value.match(letterNumber))
+          {
+           return true;
+          }
+        else
+          { 
+           alert("message"); 
+           return false; 
+          }
+        }
 
     },
 
@@ -60,7 +86,7 @@ const app=
 
         document.addEventListener("DOMContentLoaded",function(){
 
-            alert("Second Page Has finished loaded");
+          //  alert("Second Page Has finished loaded");
         })
 
 
