@@ -29,57 +29,18 @@ const app=
 
     mainUInit()
     {
-
-
-        document.addEventListener("DOMContentLoaded",function(){
-
-           // alert("Main UI Has finished loaded");
-          
-        })
-
-        
+       
         MainUI.calculateButton.addEventListener("click",function(){
 
             const rec = new Rectangle(parseFloat(MainUI.lengthTextField.value),parseFloat(MainUI.widthTextField.value));
        
-            if(MainUI.lengthTextField.value!="" && MainUI.widthTextField.value!="")
+            if(!MainUI.validateField())
             {
                 MainUI.populateAnswerContainer(rec);
             }
-                // if(stringTester(MainUI.lengthTextField.value))
-                // {
-                //     MainUI.validateCharType("length",true);
-                // }
-                // else{
-                //     MainUI.validateCharType("length",false);
-                // }
-
-                // if(stringTester(MainUI.widthTextField.value))
-                // {
-                //     MainUI.validateCharType("width",true);
-                // }
-                // else{
-                //     MainUI.validateCharType("width",false);
-                // }
-
-                MainUI.validateFieldLength(MainUI.lengthTextField.value);
-                MainUI.validateFieldWidth(MainUI.widthTextField.value);
             
+    
         });
-
-        function stringTester(inputtxt)
-        {
-         const letterNumber = /^[0-9]+$/;
-         if(inputtxt.value.match(letterNumber))
-          {
-           return true;
-          }
-        else
-          { 
-           return false; 
-          }
-        }
-
     },
 
     secondUIInt()

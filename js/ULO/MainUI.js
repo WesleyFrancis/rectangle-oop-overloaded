@@ -9,58 +9,55 @@ const MainUI =
     calculateButton : document.querySelector("#calculateButton"),
     answerContainer : document.querySelector("#container"),
     errorContainer : document.querySelectorAll(".error-message"),
+    InputContainer : document.querySelectorAll(".form-control"),
 
     populateAnswerContainer(rectangle)
     {
         this.answerContainer.innerHTML=`The area of the rectangle with the length ${rectangle.length} and width : ${rectangle.width} is ${rectangle.calArea()}`;
         this.answerContainer.innerHTML+=`<br>The permieter of the rectangle with the length ${rectangle.length} and width : ${rectangle.width} is ${rectangle.calPerimeter()}`;
     },
-
-    validateFieldLength(char)
+    erorStyle(Err,textbox,msg)
     {
-        if(char=="")
-        {
-            this.errorContainer[0].innerHTML="Sorry you must enter a length";
-            this.errorContainer[0].style.color ="red";
-            this.answerContainer.innerHTML="";
-        }
-        if(char!="")
-        {
-            this.errorContainer[0].innerHTML="";
-        }
-        
+        Err.style.color ="red";
+        textbox.style.border="2px solid red";
+        Err.innerHTML=msg;
     },
-    validateFieldWidth(char)
-    {
-        if(char=="")
-        {
-            this.errorContainer[1].innerHTML="Sorry you must enter a width";
-            this.errorContainer[1].style.color ="red";
-            this.answerContainer.innerHTML="";
-        }
-        if(char!="")
-        {
-            this.errorContainer[1].innerHTML="";
-        }
-    },
-    // validateCharType(type,err)
-    // {
-    //     if(type=="length" && err==true)
-    //     {
-    //         this.errorContainer[0].innerHTML="Only numbers are accepted";
-    //     }
-    //     else{
-    //         this.errorContainer[0].innerHTML="";
-    //     }
-    //     if(type=="width")
-    //     {
-    //         this.errorContainer[1].innerHTML="Only numbers are accepted";
-    //     }
-    //     else{
-    //         this.errorContainer[1].innerHTML="";
-    //     }
-    // }
 
+    validateField()
+    {
+        let hasErr=false;
+        for(let i=0;i<this.errorContainer.length;i++)
+        {
+            const textbox=this.InputContainer[i].querySelector("input");
+            const label=this.InputContainer[i].querySelector("label");
+            const Err=this.InputContainer[i].querySelector("div");
+            
+            if(textbox.value=="")
+            {
+                this.erorStyle(Err,textbox,`Sorry you must enter a value for ${label.innerHTML}`);
+                this.answerContainer.innerHTML="";
+                hasErr=true;
+            }
+           else
+           {
+               if(isNaN(textbox.value))
+               {
+                    this.erorStyle(Err,textbox,'Sorry you must enter a number');
+                    
+                    hasErr=true;
+               }
+               else
+               {
+                    Err.innerHTML="";
+                    Err.style.color ="none";
+                    textbox.style.border="2px solid #555";
+                    hasErr=false;
+               }  
+           }
+        }
+        this.answerContainer.innerHTML="";
+        return hasErr;
+    }
 }
 
 export default  MainUI;
